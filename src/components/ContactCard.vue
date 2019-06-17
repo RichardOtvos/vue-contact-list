@@ -1,9 +1,9 @@
 <template>
     <div class="contact-card">
-        <img src="../assets/logo.png" :alt="`The profile picture of ${name}`" :title="`The profile picture of ${name}`">
+        <img :src="avatarUrl" :alt="`The profile picture of ${name}`" :title="`The profile picture of ${name}`">
         <div class="contact-details">
             <p><span class="label">Name:</span> {{name}}</p>
-            <p><span class="label">Email:</span> {{email}}</p>
+            <p><span class="label">Email:</span> <a :href="`mailto:${email}`">{{email}}</a></p>
             <p><span class="label">Bio:</span>{{bio}}</p>
         </div>
     </div>
@@ -11,22 +11,31 @@
 
 <script>
     export default {
-        name: "ContactCard",
-        props: ['name', 'email', 'bio']
+        name: 'ContactCard',
+        props: {
+            name: String,
+            email: String,
+            bio: String,
+            avatarUrl: {
+                type: String,
+                default: require('@/assets/logo.png')
+            }
+        }
     }
 </script>
 
 <style scoped>
     .contact-card {
-        width: 35em;
+        width: 40em;
         display: flex;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
     }
 
     img {
         width: 15em;
-        min-height: 15em;
+        height: 15em;
         flex: none;
+        object-fit: cover;
     }
 
     .contact-details {

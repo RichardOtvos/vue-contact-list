@@ -4,6 +4,7 @@
                 :name="contact.name"
                 :email="contact.email"
                 :bio="contact.bio"
+                :avatar-url="contact.avatarUrl"
         ></ContactCard>
     </div>
 </template>
@@ -20,7 +21,8 @@
                     email: 'joseph@pizza.test',
                     bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eveniet ipsum maxime ' +
                         'natus tempora temporibus. Accusamus ad atque ea explicabo, ipsam maiores minima minus ' +
-                        'possimus praesentium quisratione sapiente tenetur.'
+                        'possimus praesentium quisratione sapiente tenetur.',
+                    avatarUrl: 'http://tarpizza.com/wp-content/uploads/2016/10/napolyi-3.jpg'
                 }
             }
         },
