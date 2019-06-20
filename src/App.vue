@@ -13,47 +13,47 @@
 </template>
 
 <script>
-import ContactCard from "./components/ContactCard.vue";
-import ContactList from "./components/ContactList";
+import ContactCard from './components/ContactCard.vue';
+import ContactList from './components/ContactList';
 
 export default {
-  name: "app",
+  name: 'app',
   data: function() {
     return {
       currentContactId: 1,
       contactList: [
         {
-          name: "Joe Pizza",
-          email: "joseph@pizza.test",
+          name: 'Joe Pizza',
+          email: 'joseph@pizza.test',
           bio:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eveniet ipsum maxime " +
-            "natus tempora temporibus. Accusamus ad atque ea explicabo, ipsam maiores minima minus " +
-            "possimus praesentium quisratione sapiente tenetur.",
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eveniet ipsum maxime ' +
+            'natus tempora temporibus. Accusamus ad atque ea explicabo, ipsam maiores minima minus ' +
+            'possimus praesentium quisratione sapiente tenetur.',
           avatarUrl:
-            "http://tarpizza.com/wp-content/uploads/2016/10/napolyi-3.jpg"
+            'http://tarpizza.com/wp-content/uploads/2016/10/napolyi-3.jpg',
         },
         {
-          name: "Finom Zoldseg",
-          email: "finom@zoldseg.test",
+          name: 'Finom Zoldseg',
+          email: 'finom@zoldseg.test',
           bio:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eveniet ipsum maxime " +
-            "natus tempora temporibus. Accusamus ad atque ea explicabo, ipsam maiores minima minus " +
-            "possimus praesentium quisratione sapiente tenetur.",
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eveniet ipsum maxime ' +
+            'natus tempora temporibus. Accusamus ad atque ea explicabo, ipsam maiores minima minus ' +
+            'possimus praesentium quisratione sapiente tenetur.',
           avatarUrl:
-            "https://reluctantentertainer.com/wp-content/uploads/2015/04/7-Tips-to-a-Delicious-Crudit%C3%A9s-Platter-3-700x1049.jpg"
-        }
+            'https://reluctantentertainer.com/wp-content/uploads/2015/04/7-Tips-to-a-Delicious-Crudit%C3%A9s-Platter-3-700x1049.jpg',
+        },
       ],
     };
   },
-  computed:{
-    selectedContact(){
+  computed: {
+    selectedContact() {
       return this.contactList[this.currentContactId];
-    }
+    },
   },
   components: {
     ContactList,
-    ContactCard
-  }
+    ContactCard,
+  },
 };
 </script>
 
@@ -63,7 +63,7 @@ body {
 }
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 

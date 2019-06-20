@@ -18,16 +18,16 @@
 
 <script>
 export default {
-  name: "ContactCard",
+  name: 'ContactCard',
   props: {
     name: String,
     email: String,
     bio: String,
     avatarUrl: {
       type: String,
-      default: require("@/assets/logo.png")
-    }
-  }
+      default: require('@/assets/logo.png'),
+    },
+  },
 };
 </script>
 

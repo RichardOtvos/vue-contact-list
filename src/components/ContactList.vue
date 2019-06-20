@@ -9,10 +9,10 @@
 
 <script>
 export default {
-  name: "ContactList",
+  name: 'ContactList',
   props: {
-    contactList: Array
-  }
+    contactList: Array,
+  },
 };
 </script>
 
