@@ -20,6 +20,7 @@
 export default {
   name: 'ContactCard',
   props: {
+    id: String,
     name: String,
     email: String,
     bio: String,

@@ -2,7 +2,13 @@
   <div class="contact-list">
     <h2>Contacts</h2>
     <ul>
-      <li v-for="contact in contactList">{{ contact.name }}</li>
+      <li
+        :class="{ active: contact.id === selectedId }"
+        v-for="contact in contactList"
+        :key="contact.id"
+      >
+        {{ contact.name }}
+      </li>
     </ul>
   </div>
 </template>
@@ -11,6 +17,7 @@
 export default {
   name: 'ContactList',
   props: {
+    selectedId: String,
     contactList: Array,
   },
 };
@@ -31,6 +38,10 @@ li {
 }
 
 li:hover {
+  text-decoration: underline;
+}
+
+.active {
   font-weight: bold;
 }
 </style>

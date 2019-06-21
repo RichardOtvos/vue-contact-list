@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <ContactList :contactList="contactList"></ContactList>
+    <ContactList
+      :contactList="contactList"
+      :selectedId="currentContactId"
+    ></ContactList>
     <div class="card-holder">
       <ContactCard
+        :id="selectedContact.id"
         :name="selectedContact.name"
         :email="selectedContact.email"
         :bio="selectedContact.bio"
@@ -20,9 +24,10 @@ export default {
   name: 'app',
   data: function() {
     return {
-      currentContactId: 1,
+      currentContactId: '2',
       contactList: [
         {
+          id: '1',
           name: 'Joe Pizza',
           email: 'joseph@pizza.test',
           bio:
@@ -33,6 +38,7 @@ export default {
             'http://tarpizza.com/wp-content/uploads/2016/10/napolyi-3.jpg',
         },
         {
+          id: '2',
           name: 'Finom Zoldseg',
           email: 'finom@zoldseg.test',
           bio:
@@ -47,7 +53,9 @@ export default {
   },
   computed: {
     selectedContact() {
-      return this.contactList[this.currentContactId];
+      return this.contactList.find(
+        contact => contact.id === this.currentContactId
+      );
     },
   },
   components: {
