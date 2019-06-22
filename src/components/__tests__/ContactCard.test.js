@@ -1,5 +1,4 @@
 import { shallowMount } from '@vue/test-utils';
-import { mount } from '@vue/test-utils';
 import ContactCard from '../ContactCard';
 
 describe('ContactCard', () => {
@@ -52,9 +51,9 @@ describe('ContactCard', () => {
   test('should display the avatar correctly', () => {
     const testProps = {
       name: 'Joe Test',
-      avatarUrl: 'http://mydomain.com/myavatar.png'
+      avatarUrl: 'http://mydomain.com/myavatar.png',
     };
-    const wrapper = shallowMount(ContactCard, {propsData: testProps});
+    const wrapper = shallowMount(ContactCard, { propsData: testProps });
 
     const compEl = wrapper.find('.contact-card img');
 

@@ -6,6 +6,7 @@
         :class="{ active: contact.id === selectedId }"
         v-for="contact in contactList"
         :key="contact.id"
+        @click="$emit('on-list-item-click', contact.id)"
       >
         {{ contact.name }}
       </li>

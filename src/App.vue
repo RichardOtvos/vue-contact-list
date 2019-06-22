@@ -3,6 +3,7 @@
     <ContactList
       :contactList="contactList"
       :selectedId="currentContactId"
+      @on-list-item-click="changeToContact"
     ></ContactList>
     <div class="card-holder">
       <ContactCard
@@ -22,7 +23,7 @@ import ContactList from './components/ContactList';
 
 export default {
   name: 'app',
-  data: function() {
+  data() {
     return {
       currentContactId: '2',
       contactList: [
@@ -56,6 +57,11 @@ export default {
       return this.contactList.find(
         contact => contact.id === this.currentContactId
       );
+    },
+  },
+  methods: {
+    changeToContact(newId) {
+      this.currentContactId = newId;
     },
   },
   components: {
