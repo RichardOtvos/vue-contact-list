@@ -3,7 +3,6 @@
     <img
       :src="avatarUrl"
       :alt="`The profile picture of ${name}`"
-      :title="`The profile picture of ${name}`"
     />
     <div class="contact-details">
       <p><span class="label">Name:</span> {{ name }}</p>

@@ -59,4 +59,18 @@ describe('ContactCard', () => {
 
     expect(compEl.html()).toContain(testProps.avatarUrl);
   });
+
+  test('should show correct alt text for the image', () => {
+    const testProps = {
+      name: 'Joe Test',
+      avatarUrl: 'http://mydomain.com/myavatar.png',
+    };
+    const wrapper = shallowMount(ContactCard, { propsData: testProps });
+
+    const compEl = wrapper.find('.contact-card img');
+
+    const sut = compEl.attributes('alt');
+    console.log(sut);
+    expect(sut).toContain(`The profile picture of ${testProps.name}`);
+  });
 });
