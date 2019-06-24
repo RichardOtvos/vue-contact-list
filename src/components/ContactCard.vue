@@ -1,9 +1,6 @@
 <template>
   <div class="contact-card">
-    <img
-      :src="avatarUrl"
-      :alt="`The profile picture of ${name}`"
-    />
+    <img :src="avatarUrl" :alt="`The profile picture of ${name}`" />
     <div class="contact-details">
       <p><span class="label">Name:</span> {{ name }}</p>
       <p>
@@ -25,9 +22,9 @@ export default {
     bio: String,
     avatarUrl: {
       type: String,
-      default: require('@/assets/logo.png'),
-    },
-  },
+      default: require('@/assets/logo.png')
+    }
+  }
 };
 </script>
 

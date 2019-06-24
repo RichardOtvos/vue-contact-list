@@ -43,7 +43,7 @@
   },
   "prettier": {
     "singleQuote": true,
-    "trailingComma": "es5"
+    "trailingComma": "none"
   },
   "postcss": {
     "plugins": {

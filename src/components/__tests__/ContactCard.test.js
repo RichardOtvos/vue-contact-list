@@ -10,10 +10,10 @@ describe('ContactCard', () => {
 
   test('should display the name correctly', () => {
     const testProps = {
-      name: 'Joe Test',
+      name: 'Joe Test'
     };
     const wrapper = shallowMount(ContactCard, {
-      propsData: testProps,
+      propsData: testProps
     });
 
     const compEl = wrapper.findAll('.contact-details p').at(0);
@@ -23,10 +23,10 @@ describe('ContactCard', () => {
 
   test('should display the email correctly', () => {
     const testProps = {
-      email: 'test@example.com',
+      email: 'test@example.com'
     };
     const wrapper = shallowMount(ContactCard, {
-      propsData: testProps,
+      propsData: testProps
     });
 
     const compEl = wrapper.findAll('.contact-details a').at(0);
@@ -37,10 +37,10 @@ describe('ContactCard', () => {
 
   test('should display the bio correctly', () => {
     const testProps = {
-      bio: 'This is a test',
+      bio: 'This is a test'
     };
     const wrapper = shallowMount(ContactCard, {
-      propsData: testProps,
+      propsData: testProps
     });
 
     const compEl = wrapper.findAll('.contact-details p').at(2);
@@ -51,7 +51,7 @@ describe('ContactCard', () => {
   test('should display the avatar correctly', () => {
     const testProps = {
       name: 'Joe Test',
-      avatarUrl: 'http://mydomain.com/myavatar.png',
+      avatarUrl: 'http://mydomain.com/myavatar.png'
     };
     const wrapper = shallowMount(ContactCard, { propsData: testProps });
 
@@ -63,7 +63,7 @@ describe('ContactCard', () => {
   test('should show correct alt text for the image', () => {
     const testProps = {
       name: 'Joe Test',
-      avatarUrl: 'http://mydomain.com/myavatar.png',
+      avatarUrl: 'http://mydomain.com/myavatar.png'
     };
     const wrapper = shallowMount(ContactCard, { propsData: testProps });
 

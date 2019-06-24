@@ -2,14 +2,15 @@
   <div class="contact-list">
     <h2>Contacts</h2>
     <ul>
-      <li
-        :class="{ active: contact.id === selectedId }"
+      <router-link
         v-for="contact in contactList"
         :key="contact.id"
-        @click="$emit('on-list-item-click', contact.id)"
+        tag="li"
+        :class="{ active: contact.id === selectedId }"
+        :to="{ name: 'details', params: { selectedId: contact.id } }"
       >
         {{ contact.name }}
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -19,8 +20,8 @@ export default {
   name: 'ContactList',
   props: {
     selectedId: String,
-    contactList: Array,
-  },
+    contactList: Array
+  }
 };
 </script>
 
