@@ -8,11 +8,11 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: {name: 'details'}
+      redirect: { name: 'details' }
     },
     {
       path: '/details',
-      redirect: {name: 'details'}
+      redirect: { name: 'details' }
     },
     {
       path: '/details/:selectedId',
