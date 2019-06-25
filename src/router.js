@@ -1,18 +1,16 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Details from './views/Details';
+import NewContact from './views/NewContact';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      redirect: { name: 'details' }
-    },
-    {
-      path: '/details',
-      redirect: { name: 'details' }
+      path: '/new',
+      name: 'newContact',
+      component: NewContact
     },
     {
       path: '/details/:selectedId',
@@ -20,6 +18,6 @@ export default new Router({
       component: Details,
       props: true
     },
-    { path: '*', redirect: '/' }
+    { path: '*', redirect: { name: 'details' } }
   ]
 });
