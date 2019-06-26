@@ -70,7 +70,6 @@ describe('ContactCard', () => {
     const compEl = wrapper.find('.contact-card img');
 
     const sut = compEl.attributes('alt');
-    console.log(sut);
     expect(sut).toContain(`The profile picture of ${testProps.name}`);
   });
 });
