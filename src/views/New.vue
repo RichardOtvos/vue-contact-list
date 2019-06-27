@@ -1,18 +1,19 @@
 <template>
   <div id="new-contact-page">
     <h1>New Contact</h1>
-    <div>
-      <p>TBD</p>
-    </div>
-    <div>
-      <router-link to="details">Cancel</router-link>
-    </div>
+    <add-contact></add-contact>
   </div>
 </template>
 
 <script>
+
+import AddContact from '../components/AddContact';
+
 export default {
-  name: 'NewContact'
+  name: 'New',
+  components:{
+    AddContact
+  }
 };
 </script>
 

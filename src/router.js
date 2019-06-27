@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Details from './views/Details';
-import NewContact from './views/NewContact';
+import New from './views/New';
 
 Vue.use(Router);
 
@@ -10,7 +10,7 @@ export default new Router({
     {
       path: '/new',
       name: 'newContact',
-      component: NewContact
+      component: New
     },
     {
       path: '/details/:selectedId',
