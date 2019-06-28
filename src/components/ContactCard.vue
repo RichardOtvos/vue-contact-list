@@ -1,6 +1,6 @@
 <template>
   <div class="contact-card">
-    <img :src="avatarUrl" :alt="`The profile picture of ${name}`" />
+    <img :src="getAvatarUrl" :alt="`The profile picture of ${name}`" />
     <div class="contact-details">
       <p><span class="label">Name:</span> {{ name }}</p>
       <p>
@@ -20,9 +20,14 @@ export default {
     name: String,
     email: String,
     bio: String,
-    avatarUrl: {
-      type: String,
-      default: require('@/assets/logo.png')
+    avatarUrl: String
+  },
+  computed: {
+    getAvatarUrl() {
+      if (this.avatarUrl) {
+        return this.avatarUrl;
+      }
+      return require('@/assets/logo.png');
     }
   }
 };

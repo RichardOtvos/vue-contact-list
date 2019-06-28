@@ -43,13 +43,14 @@ export default {
       }
 
       const newContact = {
-          id: btoa(this.contactName),
-          name: this.contactName,
-          email: this.contactEmail,
-          bio: this.contactBio,
-          avatarUrl: this.contactAvatarUrl
+        id: btoa(this.contactName).slice(0, -2),
+        name: this.contactName,
+        email: this.contactEmail,
+        bio: this.contactBio,
+        avatarUrl: this.contactAvatarUrl
       };
-      console.log('new contact', newContact);
+
+      this.$emit('on-add-contact', newContact);
     }
   }
 };

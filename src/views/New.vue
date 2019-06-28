@@ -1,17 +1,21 @@
 <template>
   <div id="new-contact-page">
     <h1>New Contact</h1>
-    <add-contact></add-contact>
+    <add-contact @on-add-contact="onNewContact"></add-contact>
   </div>
 </template>
 
 <script>
-
 import AddContact from '../components/AddContact';
 
 export default {
   name: 'New',
-  components:{
+  methods: {
+    onNewContact(contact) {
+      this.$emit('on-new-contact', contact);
+    }
+  },
+  components: {
     AddContact
   }
 };
