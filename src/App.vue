@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view :contactList="contactList" @on-new-contact="addContact" />
+    <router-view @on-new-contact="addContact" />
   </div>
 </template>
 

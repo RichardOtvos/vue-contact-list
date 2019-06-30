@@ -23,14 +23,16 @@
 <script>
 import ContactCard from '@/components/ContactCard.vue';
 import ContactList from '@/components/ContactList.vue';
+import { mapState } from 'vuex';
 
 export default {
   name: 'ContactDetails',
-  props: { selectedId: String, default: null, contactList: Array },
+  props: { selectedId: String, default: null },
   computed: {
     selectedContact() {
       return this.contactList.find(contact => contact.id === this.selectedId);
-    }
+    },
+    ...mapState(['contactList'])
   },
   components: {
     ContactList,

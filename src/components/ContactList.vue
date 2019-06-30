@@ -12,6 +12,9 @@
         {{ contact.name }}
       </router-link>
     </ul>
+    <router-link tag="span" class="add-new-link" :to="{ name: 'newContact' }">
+      Add new</router-link
+    >
   </div>
 </template>
 
@@ -45,5 +48,9 @@ li:hover {
 
 .active {
   font-weight: bold;
+}
+
+.add-new-link {
+  cursor: pointer;
 }
 </style>
