@@ -6,14 +6,21 @@
 </template>
 
 <script>
-import AddContact from '../components/AddContact';
+import AddContact from '@/components/AddContact';
+import { ADD_CONTACT } from '@/store';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'New',
   methods: {
     onNewContact(contact) {
-      this.$emit('on-new-contact', contact);
-    }
+      this.addContact(contact);
+      this.$router.push({
+        name: 'details',
+        params: { selectedId: contact.id }
+      });
+    },
+    ...mapActions({ addContact: ADD_CONTACT })
   },
   components: {
     AddContact

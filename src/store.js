@@ -3,7 +3,9 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+export const ADD_CONTACT = 'ADD_CONTACT';
+
+export const contactStore = new Vuex.Store({
   state: {
     contactList: [
       {
@@ -29,5 +31,15 @@ export default new Vuex.Store({
           'https://reluctantentertainer.com/wp-content/uploads/2015/04/7-Tips-to-a-Delicious-Crudit%C3%A9s-Platter-3-700x1049.jpg'
       }
     ]
+  },
+  mutations: {
+    [ADD_CONTACT](state, contact) {
+      state.contactList.push(contact);
+    }
+  },
+  actions: {
+    [ADD_CONTACT]({ commit }, contact) {
+      commit(ADD_CONTACT, contact);
+    }
   }
 });
