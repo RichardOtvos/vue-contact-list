@@ -4,9 +4,11 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 export const ADD_CONTACT = 'ADD_CONTACT';
+export const SELECT_CONTACT = 'SELECT_CONTACT';
 
 export const contactStore = new Vuex.Store({
   state: {
+    selectedContactId: null,
     contactList: [
       {
         id: '1',
@@ -32,14 +34,30 @@ export const contactStore = new Vuex.Store({
       }
     ]
   },
+  getters: {
+    currentlySelectedContact(state) {
+      if (state.selectedContactId) {
+        return state.contactList.find(
+          contact => contact.id === state.selectedContactId
+        );
+      }
+      return null;
+    }
+  },
   mutations: {
     [ADD_CONTACT](state, contact) {
       state.contactList.push(contact);
+    },
+    [SELECT_CONTACT](state, contactId) {
+      state.selectedContactId = contactId;
     }
   },
   actions: {
     [ADD_CONTACT]({ commit }, contact) {
       commit(ADD_CONTACT, contact);
+    },
+    [SELECT_CONTACT]({ commit }, contactId) {
+      commit(SELECT_CONTACT, contactId);
     }
   }
 });

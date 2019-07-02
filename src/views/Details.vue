@@ -2,11 +2,11 @@
   <div class="contact-details-page">
     <ContactList
       :contactList="contactList"
-      :selectedId="selectedId"
+      :selectedId="selectedContactId"
     ></ContactList>
     <div class="card-holder">
       <ContactCard
-        v-if="selectedId"
+        v-if="selectedContactId"
         :id="selectedContact.id"
         :name="selectedContact.name"
         :email="selectedContact.email"
@@ -23,16 +23,25 @@
 <script>
 import ContactCard from '@/components/ContactCard.vue';
 import ContactList from '@/components/ContactList.vue';
-import { mapState } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
+import { SELECT_CONTACT } from '../store';
 
 export default {
   name: 'ContactDetails',
   props: { selectedId: String, default: null },
   computed: {
-    selectedContact() {
-      return this.contactList.find(contact => contact.id === this.selectedId);
-    },
-    ...mapState(['contactList'])
+    ...mapState(['contactList', 'selectedContactId']),
+    ...mapGetters({
+      selectedContact: 'currentlySelectedContact'
+    })
+  },
+  methods: {
+    ...mapActions({ selectContact: SELECT_CONTACT })
+  },
+  watch: {
+    selectedId(newId) {
+      this.selectContact(newId);
+    }
   },
   components: {
     ContactList,
