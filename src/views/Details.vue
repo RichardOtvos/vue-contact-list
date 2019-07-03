@@ -28,7 +28,6 @@ import { SELECT_CONTACT } from '../store';
 
 export default {
   name: 'ContactDetails',
-  props: { selectedId: String, default: null },
   computed: {
     ...mapState(['contactList', 'selectedContactId']),
     ...mapGetters({
@@ -37,11 +36,6 @@ export default {
   },
   methods: {
     ...mapActions({ selectContact: SELECT_CONTACT })
-  },
-  watch: {
-    selectedId(newId) {
-      this.selectContact(newId);
-    }
   },
   components: {
     ContactList,

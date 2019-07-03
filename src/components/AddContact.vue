@@ -18,7 +18,9 @@
         <textarea id="contact-bio" v-model="contactBio"></textarea>
       </div>
       <div class="button-holder">
-        <router-link to="details">Cancel</router-link>
+        <router-link :to="{ name: 'details', params: { selectedId: null } }">
+          Cancel
+        </router-link>
         <a href="" @click.prevent="onNewContactClick">Create</a>
       </div>
     </form>

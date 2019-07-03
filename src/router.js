@@ -13,10 +13,9 @@ export default new Router({
       component: New
     },
     {
-      path: '/details/:selectedId',
+      path: '/details/:selectedId?',
       name: 'details',
-      component: Details,
-      props: true
+      component: Details
     },
     { path: '*', redirect: { name: 'details' } }
   ]

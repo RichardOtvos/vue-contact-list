@@ -1,9 +1,14 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import { contactStore as store } from './store';
+import { contactStore as store, SELECT_CONTACT } from './store';
 
 Vue.config.productionTip = false;
+
+router.beforeEach((to, from, next) => {
+  store.dispatch(SELECT_CONTACT, to.params.selectedId);
+  next();
+});
 
 new Vue({
   router,
