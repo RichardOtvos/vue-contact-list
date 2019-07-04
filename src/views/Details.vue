@@ -1,9 +1,6 @@
 <template>
   <div class="contact-details-page">
-    <ContactList
-      :contactList="contactList"
-      :selectedId="selectedContactId"
-    ></ContactList>
+    <ContactList></ContactList>
     <div class="card-holder">
       <ContactCard
         v-if="selectedContactId"

@@ -6,7 +6,7 @@
         v-for="contact in contactList"
         :key="contact.id"
         tag="li"
-        :class="{ active: contact.id === selectedId }"
+        :class="{ active: contact.id === selectedContactId }"
         :to="{ name: 'details', params: { selectedId: contact.id } }"
       >
         {{ contact.name }}
@@ -19,11 +19,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   name: 'ContactList',
-  props: {
-    selectedId: String,
-    contactList: Array
+  computed: {
+    ...mapState(['contactList', 'selectedContactId'])
   }
 };
 </script>
