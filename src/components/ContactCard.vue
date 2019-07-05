@@ -1,34 +1,32 @@
 <template>
   <div class="contact-card">
-    <img :src="getAvatarUrl" :alt="`The profile picture of ${name}`" />
+    <img :src="getAvatarUrl" :alt="`The profile picture of ${contact.name}`" />
     <div class="contact-details">
-      <p><span class="label">Name:</span> {{ name }}</p>
+      <p><span class="label">Name:</span> {{ contact.name }}</p>
       <p>
         <span class="label">Email:</span>
-        <a :href="`mailto:${email}`">{{ email }}</a>
+        <a :href="`mailto:${contact.email}`">{{ contact.email }}</a>
       </p>
-      <p><span class="label">Bio:</span>{{ bio }}</p>
+      <p><span class="label">Bio:</span>{{ contact.bio }}</p>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'ContactCard',
-  props: {
-    id: String,
-    name: String,
-    email: String,
-    bio: String,
-    avatarUrl: String
-  },
   computed: {
     getAvatarUrl() {
-      if (this.avatarUrl) {
-        return this.avatarUrl;
+      if (this.contact.avatarUrl) {
+        return this.contact.avatarUrl;
       }
       return require('@/assets/logo.png');
-    }
+    },
+    ...mapGetters({
+      contact: 'currentlySelectedContact'
+    })
   }
 };
 </script>

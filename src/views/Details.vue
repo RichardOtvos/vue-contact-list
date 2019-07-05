@@ -1,15 +1,8 @@
 <template>
   <div class="contact-details-page">
-    <ContactList></ContactList>
+    <ContactList />
     <div class="card-holder">
-      <ContactCard
-        v-if="selectedContactId"
-        :id="selectedContact.id"
-        :name="selectedContact.name"
-        :email="selectedContact.email"
-        :bio="selectedContact.bio"
-        :avatar-url="selectedContact.avatarUrl"
-      ></ContactCard>
+      <ContactCard v-if="selectedContactId" />
       <div class="empty-contact" v-else>
         <h1>Select a contact!</h1>
       </div>
@@ -20,16 +13,13 @@
 <script>
 import ContactCard from '@/components/ContactCard.vue';
 import ContactList from '@/components/ContactList.vue';
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import { SELECT_CONTACT } from '../store';
 
 export default {
   name: 'ContactDetails',
   computed: {
-    ...mapState(['contactList', 'selectedContactId']),
-    ...mapGetters({
-      selectedContact: 'currentlySelectedContact'
-    })
+    ...mapState(['contactList', 'selectedContactId'])
   },
   methods: {
     ...mapActions({ selectContact: SELECT_CONTACT })
