@@ -1,5 +1,7 @@
 # vue-contact-list
 
+An example project using vue and vuex
+
 ## Project setup
 ```
 npm install
