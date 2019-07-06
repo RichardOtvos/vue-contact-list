@@ -1,6 +1,6 @@
 # vue-contact-list
 
-An example project using vue and vuex
+An example project using vue, vue-routerand vuex.
 
 ## Project setup
 ```
