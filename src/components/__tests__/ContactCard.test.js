@@ -3,73 +3,97 @@ import ContactCard from '../ContactCard';
 
 describe('ContactCard', () => {
   test('is a Vue instance', () => {
-    // expect(true).toBeTruthy();
-    const wrapper = shallowMount(ContactCard);
+    const testState = {
+      currentlySelectedContact: {}
+    };
+    const wrapper = shallowMount(ContactCard, {
+      mocks: { $store: { getters: testState } }
+    });
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 
   test('should display the name correctly', () => {
-    const testProps = {
-      name: 'Joe Test'
+    const testState = {
+      currentlySelectedContact: {
+        name: 'Joe Test'
+      }
     };
     const wrapper = shallowMount(ContactCard, {
-      propsData: testProps
+      mocks: { $store: { getters: testState } }
     });
 
     const compEl = wrapper.findAll('.contact-details p').at(0);
 
-    expect(compEl.text()).toContain(testProps.name);
+    expect(compEl.text()).toContain(testState.currentlySelectedContact.name);
   });
 
   test('should display the email correctly', () => {
-    const testProps = {
-      email: 'test@example.com'
+    const testState = {
+      currentlySelectedContact: {
+        email: 'test@example.com'
+      }
     };
     const wrapper = shallowMount(ContactCard, {
-      propsData: testProps
+      mocks: { $store: { getters: testState } }
     });
 
     const compEl = wrapper.findAll('.contact-details a').at(0);
 
-    expect(compEl.text()).toContain(testProps.email);
-    expect(compEl.html()).toContain(`mailto:${testProps.email}`);
+    expect(compEl.text()).toContain(testState.currentlySelectedContact.email);
+    expect(compEl.html()).toContain(
+      `mailto:${testState.currentlySelectedContact.email}`
+    );
   });
 
   test('should display the bio correctly', () => {
-    const testProps = {
-      bio: 'This is a test'
+    const testState = {
+      currentlySelectedContact: {
+        bio: 'This is a test'
+      }
     };
     const wrapper = shallowMount(ContactCard, {
-      propsData: testProps
+      mocks: { $store: { getters: testState } }
     });
 
     const compEl = wrapper.findAll('.contact-details p').at(2);
 
-    expect(compEl.text()).toContain(testProps.bio);
+    expect(compEl.text()).toContain(testState.currentlySelectedContact.bio);
   });
 
   test('should display the avatar correctly', () => {
-    const testProps = {
-      name: 'Joe Test',
-      avatarUrl: 'http://mydomain.com/myavatar.png'
+    const testState = {
+      currentlySelectedContact: {
+        name: 'Joe Test',
+        avatarUrl: 'http://mydomain.com/myavatar.png'
+      }
     };
-    const wrapper = shallowMount(ContactCard, { propsData: testProps });
+    const wrapper = shallowMount(ContactCard, {
+      mocks: { $store: { getters: testState } }
+    });
 
     const compEl = wrapper.find('.contact-card img');
 
-    expect(compEl.html()).toContain(testProps.avatarUrl);
+    expect(compEl.html()).toContain(
+      testState.currentlySelectedContact.avatarUrl
+    );
   });
 
   test('should show correct alt text for the image', () => {
-    const testProps = {
-      name: 'Joe Test',
-      avatarUrl: 'http://mydomain.com/myavatar.png'
+    const testState = {
+      currentlySelectedContact: {
+        name: 'Joe Test',
+        avatarUrl: 'http://mydomain.com/myavatar.png'
+      }
     };
-    const wrapper = shallowMount(ContactCard, { propsData: testProps });
+    const wrapper = shallowMount(ContactCard, {
+      mocks: { $store: { getters: testState } }
+    });
 
     const compEl = wrapper.find('.contact-card img');
 
     const sut = compEl.attributes('alt');
-    expect(sut).toContain(`The profile picture of ${testProps.name}`);
+    expect(sut).toContain(
+      `The profile picture of ${testState.currentlySelectedContact.name}`
+    );
   });
 });
