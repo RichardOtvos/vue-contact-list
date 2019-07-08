@@ -1,28 +1,41 @@
 <template>
   <div class="add-contact">
     <form action="">
-      <div>
-        <label for="contact-name">Name</label>
-        <input id="contact-name" type="text" v-model="contactName" />
-      </div>
-      <div>
-        <label for="contact-email">Email</label>
-        <input id="contact-email" type="text" v-model="contactEmail" />
-      </div>
-      <div>
-        <label for="contact-avatar-url">Avatar URL</label>
-        <input id="contact-avatar-url" type="text" v-model="contactAvatarUrl" />
-      </div>
-      <div>
-        <label for="contact-bio">Bio</label>
-        <textarea id="contact-bio" v-model="contactBio"></textarea>
-      </div>
-      <div class="button-holder">
-        <router-link :to="{ name: 'details', params: { selectedId: null } }">
-          Cancel
-        </router-link>
-        <a href="" @click.prevent="onNewContactClick">Create</a>
-      </div>
+      <md-card>
+        <md-card-header>
+          <div class="md-title">Add a new card</div>
+        </md-card-header>
+        <md-card-content>
+          <md-field>
+            <label for="contact-name">Name</label>
+            <md-input id="contact-name" v-model="contactName" required />
+          </md-field>
+          <md-field>
+            <label for="contact-email">Email</label>
+            <md-input id="contact-email" v-model="contactEmail" />
+          </md-field>
+          <div>
+            <label for="contact-avatar-url">Avatar URL</label>
+            <input
+              id="contact-avatar-url"
+              type="text"
+              v-model="contactAvatarUrl"
+            />
+          </div>
+          <div>
+            <label for="contact-bio">Bio</label>
+            <textarea id="contact-bio" v-model="contactBio"></textarea>
+          </div>
+          <md-card-actions>
+            <md-button :to="{ name: 'details', params: { selectedId: null } }">
+              Cancel
+            </md-button>
+            <md-button class="md-primary" @click.prevent="onNewContactClick">
+              Create
+            </md-button>
+          </md-card-actions>
+        </md-card-content>
+      </md-card>
     </form>
   </div>
 </template>
@@ -60,14 +73,7 @@ export default {
 
 <style scoped>
 form {
-  width: 400px;
+  max-width: 600px;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-form > div {
-  display: flex;
-  justify-content: space-around;
 }
 </style>

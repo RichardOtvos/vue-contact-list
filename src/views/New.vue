@@ -1,6 +1,5 @@
 <template>
   <div id="new-contact-page">
-    <h1>New Contact</h1>
     <add-contact @on-add-contact="onNewContact"></add-contact>
   </div>
 </template>
