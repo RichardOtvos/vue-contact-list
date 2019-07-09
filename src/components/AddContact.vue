@@ -7,25 +7,21 @@
         </md-card-header>
         <md-card-content>
           <md-field>
-            <label for="contact-name">Name</label>
-            <md-input id="contact-name" v-model="contactName" required />
+            <label>Name</label>
+            <md-input v-model="contactName" required />
           </md-field>
           <md-field>
-            <label for="contact-email">Email</label>
-            <md-input id="contact-email" v-model="contactEmail" />
+            <label>Email</label>
+            <md-input v-model="contactEmail" />
           </md-field>
-          <div>
-            <label for="contact-avatar-url">Avatar URL</label>
-            <input
-              id="contact-avatar-url"
-              type="text"
-              v-model="contactAvatarUrl"
-            />
-          </div>
-          <div>
-            <label for="contact-bio">Bio</label>
-            <textarea id="contact-bio" v-model="contactBio"></textarea>
-          </div>
+          <md-field>
+            <label>Avatar URL</label>
+            <md-input v-model="contactAvatarUrl" />
+          </md-field>
+          <md-field>
+            <label>Bio</label>
+            <md-textarea v-model="contactBio"></md-textarea>
+          </md-field>
           <md-card-actions>
             <md-button :to="{ name: 'details', params: { selectedId: null } }">
               Cancel
