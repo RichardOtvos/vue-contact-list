@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <router-view />
+    <md-app>
+      <md-app-content>
+        <router-view />
+      </md-app-content>
+    </md-app>
   </div>
 </template>
 

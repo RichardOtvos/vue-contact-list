@@ -1,7 +1,5 @@
 <template>
-  <div id="new-contact-page">
-    <add-contact @on-add-contact="onNewContact"></add-contact>
-  </div>
+  <add-contact @on-add-contact="onNewContact"></add-contact>
 </template>
 
 <script>
