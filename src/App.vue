@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <md-app>
+      <md-app-drawer md-fixed md-permanent="full">
+        <ContactList />
+      </md-app-drawer>
       <md-app-content>
         <router-view />
       </md-app-content>
@@ -9,8 +12,12 @@
 </template>
 
 <script>
+import ContactList from '@/components/ContactList';
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    ContactList
+  }
 };
 </script>
 
@@ -25,5 +32,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   color: #2c3e50;
+}
+
+.md-app {
+  height: 100vw;
+}
+
+#app .md-app-drawer {
+  max-width: 230px;
 }
 </style>

@@ -1,6 +1,5 @@
 <template>
   <div class="contact-details-page">
-    <ContactList />
     <div class="card-holder">
       <ContactCard v-if="selectedContactId" />
       <div class="empty-contact" v-else>
@@ -12,7 +11,6 @@
 
 <script>
 import ContactCard from '@/components/ContactCard.vue';
-import ContactList from '@/components/ContactList.vue';
 import { mapState, mapActions } from 'vuex';
 import { SELECT_CONTACT } from '../store';
 
@@ -25,7 +23,6 @@ export default {
     ...mapActions({ selectContact: SELECT_CONTACT })
   },
   components: {
-    ContactList,
     ContactCard
   }
 };

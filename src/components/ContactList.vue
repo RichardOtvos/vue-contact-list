@@ -1,20 +1,23 @@
 <template>
-  <div class="contact-list">
-    <h2>Contacts</h2>
-    <ul>
-      <router-link
+  <div>
+    <md-toolbar class="md-transparent" md-elevation="0">
+      <span class="md-title">Contacts</span>
+    </md-toolbar>
+    <md-list class="md-dense">
+      <md-list-item
         v-for="contact in contactList"
         :key="contact.id"
         tag="li"
         :class="{ active: contact.id === selectedContactId }"
         :to="{ name: 'details', params: { selectedId: contact.id } }"
       >
-        {{ contact.name }}
-      </router-link>
-    </ul>
-    <router-link tag="span" class="add-new-link" :to="{ name: 'newContact' }">
-      Add new</router-link
-    >
+        <span class="md-list-item-text">{{ contact.name }}</span>
+      </md-list-item>
+      <md-divider></md-divider>
+      <md-button tag="span" class="add-new-link" :to="{ name: 'newContact' }">
+        + Add new
+      </md-button>
+    </md-list>
   </div>
 </template>
 
@@ -29,29 +32,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.contact-list {
-  width: 200px;
-  height: 100vh;
-  padding: 10px 20px;
-  background: #6cb289;
-  color: white;
-  box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.3);
-}
-
-li {
-  cursor: pointer;
-}
-
-li:hover {
-  text-decoration: underline;
-}
-
-.active {
-  font-weight: bold;
-}
-
-.add-new-link {
-  cursor: pointer;
-}
-</style>
+<style scoped></style>
