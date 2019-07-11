@@ -1,7 +1,19 @@
-import { shallowMount, RouterLinkStub } from '@vue/test-utils';
+import { createLocalVue, shallowMount, RouterLinkStub } from '@vue/test-utils';
 import ContactList from '../ContactList';
 
 describe('ContactList', () => {
+  let stubs;
+
+  beforeEach(() => {
+    stubs = [
+      'md-toolbar',
+      'md-list',
+      'md-list-item',
+      'md-divider',
+      'md-button'
+    ];
+  });
+
   test('is a Vue instance', () => {
     const testState = {
       contactList: [
@@ -17,10 +29,8 @@ describe('ContactList', () => {
     };
 
     const wrapper = shallowMount(ContactList, {
-      mocks: { $store: {state: testState} },
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
+      mocks: { $store: { state: testState } },
+      stubs
     });
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
@@ -40,14 +50,14 @@ describe('ContactList', () => {
     };
 
     const wrapper = shallowMount(ContactList, {
-      mocks: { $store: {state: testState} },
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
+      mocks: { $store: { state: testState } },
+      stubs
     });
 
-    expect(wrapper.contains('ul')).toBeTruthy();
-    expect(wrapper.findAll('li').length).toEqual(testState.contactList.length);
+    expect(wrapper.contains('md-list-stub')).toBeTruthy();
+    expect(wrapper.findAll('md-list-item-stub').length).toEqual(
+      testState.contactList.length
+    );
   });
 
   test('should render a list of contact names', () => {
@@ -65,22 +75,20 @@ describe('ContactList', () => {
     };
 
     const wrapper = shallowMount(ContactList, {
-      mocks: { $store: {state: testState} },
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
+      mocks: { $store: { state: testState } },
+      stubs
     });
 
-    expect(wrapper.contains('ul')).toBeTruthy();
+    expect(wrapper.contains('md-list-stub')).toBeTruthy();
     expect(
       wrapper
-        .findAll('li')
+        .findAll('md-list-item-stub')
         .at(0)
         .text()
     ).toEqual(testState.contactList[0].name);
     expect(
       wrapper
-        .findAll('li')
+        .findAll('md-list-item-stub')
         .at(1)
         .text()
     ).toEqual(testState.contactList[1].name);
@@ -102,21 +110,19 @@ describe('ContactList', () => {
     };
 
     const wrapper = shallowMount(ContactList, {
-      mocks: { $store: {state: testState} },
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
+      mocks: { $store: { state: testState } },
+      stubs
     });
 
     expect(
       wrapper
-        .findAll('li')
+        .findAll('md-list-item-stub')
         .at(1)
         .classes()
     ).toContain('active');
   });
 
-  test('should point to the correct route', () => {
+  test('should have and add contact button', () => {
     const testState = {
       contactList: [
         {
@@ -131,22 +137,12 @@ describe('ContactList', () => {
     };
 
     const wrapper = shallowMount(ContactList, {
-      mocks: { $store: {state: testState} },
-      stubs: {
-        RouterLink: RouterLinkStub
-      }
+      mocks: { $store: { state: testState } },
+      stubs
     });
 
-    let elems = wrapper.findAll(RouterLinkStub);
-
-    expect(elems.at(0).props().to.name).toEqual('details');
-    expect(elems.at(0).props().to.params.selectedId).toEqual(
-      testState.contactList[0].id
-    );
-
-    expect(elems.at(1).props().to.name).toEqual('details');
-    expect(elems.at(1).props().to.params.selectedId).toEqual(
-      testState.contactList[1].id
-    );
+    let elems = wrapper.findAll('md-button-stub');
+    expect(elems.length).toEqual(1);
+    expect(elems.at(0).html()).toContain('Add new');
   });
 });
