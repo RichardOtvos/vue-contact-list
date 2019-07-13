@@ -2,11 +2,11 @@
   <div class="contact-details-page">
     <div class="card-holder">
       <transition name="fade" mode="out-in">
-        <ContactCard v-if="selectedContactId" />
+        <ContactCard v-if="selectedContactId" :key="selectedContactId" />
         <div class="empty-contact" v-else>
           <md-empty-state
             md-label="No contact selected"
-            md-description="Choose a contact to see it's details!"
+            md-description="Choose a contact to see its details!"
           >
           </md-empty-state>
         </div>

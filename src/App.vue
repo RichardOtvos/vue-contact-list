@@ -1,11 +1,17 @@
 <template>
   <div id="app">
-    <md-app>
-      <md-app-drawer md-fixed md-permanent="full">
+    <md-app class="md-layout">
+      <md-app-drawer
+        class="md-layout-item md-size-15"
+        md-fixed
+        md-permanent="full"
+      >
         <ContactList />
       </md-app-drawer>
-      <md-app-content>
-        <router-view />
+      <md-app-content class="md-layout-item md-size-100">
+        <transition name="fade" mode="out-in">
+          <router-view />
+        </transition>
       </md-app-content>
     </md-app>
   </div>
@@ -35,10 +41,25 @@ body {
 }
 
 .md-app {
-  height: 100vw;
+  height: 100vh;
 }
 
-#app .md-app-drawer {
-  max-width: 230px;
+.md-app-content {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Fade animation*/
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 </style>
