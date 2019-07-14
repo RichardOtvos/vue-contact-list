@@ -34,25 +34,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.empty-contact {
-  width: 40em;
-  text-align: center;
-}
-
-.empty-contact h1 {
-  font-size: 48px;
-}
-.contact-details-page {
-  display: flex;
-}
-.card-holder {
-  margin: auto;
-}
-
-.contact-card {
-  margin: auto;
-  margin-bottom: 25px;
-  text-align: center;
-}
-</style>
+<style scoped></style>

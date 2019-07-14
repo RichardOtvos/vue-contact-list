@@ -25,9 +25,4 @@ export default {
 };
 </script>
 
-<style scoped>
-#new-contact-page {
-  margin: auto;
-  text-align: center;
-}
-</style>
+<style scoped></style>
