@@ -1,15 +1,21 @@
 <template>
-  <div class="contact-card">
-    <img :src="getAvatarUrl" :alt="`The profile picture of ${contact.name}`" />
-    <div class="contact-details">
-      <p><span class="label">Name:</span> {{ contact.name }}</p>
-      <p>
-        <span class="label">Email:</span>
+  <md-card class="contact-card md-elevation-4">
+    <md-card-media md-medium>
+      <img
+        :src="getAvatarUrl"
+        :alt="`The profile picture of ${contact.name}`"
+      />
+    </md-card-media>
+    <md-card-content>
+      <div class="md-title">{{ contact.name }}</div>
+      <div class="md-subhead">
         <a :href="`mailto:${contact.email}`">{{ contact.email }}</a>
+      </div>
+      <p>
+        {{ contact.bio }}
       </p>
-      <p><span class="label">Bio:</span>{{ contact.bio }}</p>
-    </div>
-  </div>
+    </md-card-content>
+  </md-card>
 </template>
 
 <script>
@@ -31,26 +37,19 @@ export default {
 };
 </script>
 
-<style scoped>
-.contact-card {
+<style scoped lang="scss">
+.md-card {
   width: 40em;
   display: flex;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
-}
 
-img {
-  width: 15em;
-  height: 15em;
-  flex: none;
-  object-fit: cover;
-}
+  .contact-details {
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 
-.contact-details {
-  text-align: left;
-  margin-left: 20px;
-}
-
-.label {
-  font-weight: bold;
+  .label {
+    font-weight: bold;
+  }
 }
 </style>
