@@ -1,5 +1,5 @@
 <template>
-  <div class="add-contact">
+  <div>
     <form action="">
       <md-card>
         <md-card-header>
@@ -67,9 +67,4 @@ export default {
 };
 </script>
 
-<style scoped>
-form {
-  width: 600px;
-  margin: auto;
-}
-</style>
+<style scoped></style>
