@@ -4,7 +4,12 @@
       class="md-layout-item md-size-50"
       @on-add-contact="onNewContact"
     ></add-contact>
-    <!--    <add-from-github class="md-layout-item md-size-50"></add-from-github>-->
+
+    <div class="md-layout-item md-size-100 card-divider">
+      <span class="md-subheading">OR</span>
+    </div>
+
+    <add-from-github class="md-layout-item md-size-50"></add-from-github>
   </div>
 </template>
 
@@ -33,4 +38,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.card-divider {
+  text-align: center;
+  padding: 10px 0;
+}
+</style>

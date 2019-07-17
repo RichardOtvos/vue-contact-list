@@ -5,7 +5,7 @@
         <div class="md-title">Add contact from GitHub</div>
       </md-card-header>
       <md-card-content>
-        <md-autocomplete v-model="selectedUser" :md-options="users">
+        <md-autocomplete v-model="selectedGithubUser" :md-options="users">
           <label>GitHub Username</label>
         </md-autocomplete>
       </md-card-content>
@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       selectedGithubUser: null,
-      users: ['Ricsi', 'Feri', 'Tamas', 'Norbi']
+      users: ['Ricsi', 'Feri', 'Tomi', 'Norbi', 'Roli']
     };
   }
 };
