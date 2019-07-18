@@ -3,7 +3,7 @@
     <form action="">
       <md-card>
         <md-card-header>
-          <div class="md-title">Add a new card</div>
+          <div class="md-title">Add a contact manually</div>
         </md-card-header>
         <md-card-content>
           <md-field>

@@ -11,7 +11,7 @@
       <div class="md-subhead">
         <a :href="`mailto:${contact.email}`">{{ contact.email }}</a>
       </div>
-      <p>
+      <p class="md-body-1">
         {{ contact.bio }}
       </p>
     </md-card-content>
