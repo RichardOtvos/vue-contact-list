@@ -23,11 +23,8 @@
             <md-textarea v-model="contactBio"></md-textarea>
           </md-field>
           <md-card-actions>
-            <md-button :to="{ name: 'details', params: { selectedId: null } }">
-              Cancel
-            </md-button>
             <md-button class="md-primary" @click.prevent="onNewContactClick">
-              Create
+              Create Contact
             </md-button>
           </md-card-actions>
         </md-card-content>

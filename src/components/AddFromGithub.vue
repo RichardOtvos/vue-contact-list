@@ -22,7 +22,11 @@
           </template>
         </md-autocomplete>
       </md-card-content>
-      <md-button @click="addContact">send</md-button>
+      <md-card-actions>
+        <md-button class="md-primary" @click.prevent="addContact">
+          Create contact
+        </md-button>
+      </md-card-actions>
     </md-card>
   </form>
 </template>
