@@ -1,6 +1,9 @@
 <template>
   <div class="md-layout md-alignment-top-center">
-    <add-from-github class="md-layout-item md-size-50"></add-from-github>
+    <add-from-github
+      class="md-layout-item md-size-50"
+      @on-add-contact="onNewContact"
+    ></add-from-github>
 
     <div class="md-layout-item md-size-100 card-divider">
       <span class="md-subheading">OR</span>

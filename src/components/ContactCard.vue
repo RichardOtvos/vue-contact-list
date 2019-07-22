@@ -48,6 +48,11 @@ export default {
     margin-right: 20px;
   }
 
+  .md-card-media img {
+    width: auto;
+    max-width: 200px;
+  }
+
   .label {
     font-weight: bold;
   }
