@@ -2,12 +2,19 @@ import { shallowMount } from '@vue/test-utils';
 import ContactCard from '../ContactCard';
 
 describe('ContactCard', () => {
+  let stubs;
+
+  beforeEach(() => {
+    stubs = ['md-card', 'md-card-media', 'md-card-content'];
+  });
+
   test('is a Vue instance', () => {
     const testState = {
       currentlySelectedContact: {}
     };
     const wrapper = shallowMount(ContactCard, {
-      mocks: { $store: { getters: testState } }
+      mocks: { $store: { getters: testState } },
+      stubs
     });
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
@@ -19,10 +26,10 @@ describe('ContactCard', () => {
       }
     };
     const wrapper = shallowMount(ContactCard, {
-      mocks: { $store: { getters: testState } }
+      mocks: { $store: { getters: testState } },
+      stubs
     });
-
-    const compEl = wrapper.findAll('.contact-details p').at(0);
+    const compEl = wrapper.find('.md-title');
 
     expect(compEl.text()).toContain(testState.currentlySelectedContact.name);
   });
@@ -34,10 +41,11 @@ describe('ContactCard', () => {
       }
     };
     const wrapper = shallowMount(ContactCard, {
-      mocks: { $store: { getters: testState } }
+      mocks: { $store: { getters: testState } },
+      stubs
     });
 
-    const compEl = wrapper.findAll('.contact-details a').at(0);
+    const compEl = wrapper.find('.md-subhead');
 
     expect(compEl.text()).toContain(testState.currentlySelectedContact.email);
     expect(compEl.html()).toContain(
@@ -52,10 +60,11 @@ describe('ContactCard', () => {
       }
     };
     const wrapper = shallowMount(ContactCard, {
-      mocks: { $store: { getters: testState } }
+      mocks: { $store: { getters: testState } },
+      stubs
     });
 
-    const compEl = wrapper.findAll('.contact-details p').at(2);
+    const compEl = wrapper.find('p.md-body-1');
 
     expect(compEl.text()).toContain(testState.currentlySelectedContact.bio);
   });
@@ -68,7 +77,8 @@ describe('ContactCard', () => {
       }
     };
     const wrapper = shallowMount(ContactCard, {
-      mocks: { $store: { getters: testState } }
+      mocks: { $store: { getters: testState } },
+      stubs
     });
 
     const compEl = wrapper.find('.contact-card img');
@@ -86,7 +96,8 @@ describe('ContactCard', () => {
       }
     };
     const wrapper = shallowMount(ContactCard, {
-      mocks: { $store: { getters: testState } }
+      mocks: { $store: { getters: testState } },
+      stubs
     });
 
     const compEl = wrapper.find('.contact-card img');
